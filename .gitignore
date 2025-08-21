@@ -1,1 +1,11 @@
-*venv
+/ProPotolok.sln
+/ProPotolok.pyproj
+/ProPotolok.pyproj.user
+/.vs
+/__pycache__
+/obj
+/venv
+/env
+/env1
+/visitors.csv
+/tempCodeRunnerFile.py

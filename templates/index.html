@@ -21,17 +21,17 @@
   <meta property="og:url" content="https://pro-potolok92.ru/">
 
   <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/mobile.css">
-  <link rel="stylesheet" href="styles/carousel-block.css">
-  <link rel="stylesheet" href="styles/calculator.css">
-  <link rel="stylesheet" href="styles/about_us.css">
-  <link rel="stylesheet" href="styles/reviews.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/modal.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/carousel-block.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/calculator.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about_us.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reviews.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -140,8 +140,8 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="image/worker1.png" alt="Мастер по потолкам">
-            <img class="overlay-img" src="image/plak.png" alt="Доп. изображение">
+            <img src="{{ url_for('static', filename='img/worker1.png') }}" alt="Мастер по потолкам">
+            <img class="overlay-img" src="{{ url_for('static', filename='img/plak.png') }}" alt="Доп. изображение">
         </div>
     </section>
 
@@ -156,7 +156,7 @@
             <ul class="carousel-track">
                
                <li class="carousel-slide">
-                    <img src="image/classic.jpg" alt="Классический потолок" />
+                    <img src="{{ url_for('static', filename='img/classic.jpg') }}" alt="Классический потолок" />
                     <div class="content">
                         <h3>Классический потолок</h3>
                         <p>Простота и функциональность в каждом элементе. <a href="https://t.me/propotolok92_project"> Пример работ</a></p>
@@ -171,7 +171,7 @@
                 </li>
 
                 <li class="carousel-slide">
-                    <img src="image/shadow.jpg" alt="Теневой потолок" />
+                    <img src="{{ url_for('static', filename='img/shadow.jpg') }}" alt="Теневой потолок" />
                     <div class="content">
                         <h3>Теневой потолок</h3>
                         <p>Изысканная игра света и тени, создающая глубину и уют. <a href="https://t.me/propotolok92_project"> Пример работ</a></p>
@@ -186,7 +186,7 @@
                 </li>
 
                 <li class="carousel-slide">
-                    <img src="image/pars.jpg" alt="Парящий потолок" />
+                    <img src="{{ url_for('static', filename='img/pars.jpg') }}" alt="Парящий потолок" />
                     <div class="content">
                         <h3>Парящий потолок</h3>
                         <p>Локальная и визуальная невесомость, создающие эффект парящей поверхности.<a href="https://t.me/propotolok92_project"> Пример работ</a></p>
@@ -203,7 +203,7 @@
             
 
                 <li class="carousel-slide">
-                    <img src="image/light_line.jpeg" alt="Световые линии" />
+                    <img src="{{ url_for('static', filename='img/light_line.jpeg') }}" alt="Световые линии" />
                     <div class="content">
                         <h3>Световые линии</h3>
                         <p>Современное оформление потолка с акцентом на свет и геометрию.<a href="https://t.me/propotolok92_project"> Пример работ</a></p>
@@ -219,7 +219,7 @@
 
 
                 <li class="carousel-slide">
-                    <img src="image/track.jpg" alt="Трековая система" />
+                    <img src="{{ url_for('static', filename='img/track.jpg') }}" alt="Трековая система" />
                     <div class="content">
                         <h3>Трековая система</h3>
                         <p>Гибкое и удобное освещение, которое можно легко настроить под любые задачи.<a href="https://t.me/propotolok92_project"> Пример работ</a></p>
@@ -326,7 +326,7 @@
         <div class="about-grid">
             <div class="about-item">
                 <div class="about-top">
-                    <img src="image/transparency.png" alt="Прозрачность" class="about-icon">
+                    <img src="{{ url_for('static', filename='img/transparency.png') }}" alt="Прозрачность" class="about-icon">
                     <h3>Прозрачность и честность</h3>
                 </div>
                 <p>Бесплатный выезд замерщика, детальная смета без скрытых платежей и фиксированные сроки монтажа.</p>
@@ -334,7 +334,7 @@
 
             <div class="about-item">
                 <div class="about-top">
-                    <img src="image/quality.png" alt="Качество" class="about-icon">
+                    <img src="{{ url_for('static', filename='img/quality.png') }}" alt="Качество" class="about-icon">
                     <h3>Качество материалов</h3>
                 </div>
                 <p>Работаем только c полотнами класса «Premium» по стандартам пожарной и санитарной безопасности.</p>
@@ -342,7 +342,7 @@
 
             <div class="about-item">
                 <div class="about-top">
-                    <img src="image/personal.png" alt="Прозрачность" class="about-icon">
+                    <img src="{{ url_for('static', filename='img/personal.png') }}" alt="Прозрачность" class="about-icon">
                     <h3>Индивидуальный подход</h3>
                 </div>
                 <p>Помогаем подобрать фактуру, цвет и освещение под стиль интерьера, делаем 3D-визуализации.</p>
@@ -350,7 +350,7 @@
 
             <div class="about-item">
                 <div class="about-top">
-                    <img src="image/technology.png" alt="Прозрачность" class="about-icon">
+                    <img src="{{ url_for('static', filename='img/technology.png') }}" alt="Прозрачность" class="about-icon">
                     <h3>Технологичность</h3>
                 </div>
                 <p>Используем лазерные нивелиры, бесшовную сварку и пылесборные системы — монтаж проходит чисто, быстро и без лишнего шума.</p>
@@ -565,8 +565,8 @@
         <a href="https://t.me/propotolok92_project" target="_blank">
             <button class="subscribe-btn">
                 Подписывайтесь
-                <img src="image/tg.png" alt="Telegram" class="telegram-icon">
-                <img src="image/vk.png" alt="VK" class="telegram-icon">
+                <img src="{{ url_for('static', filename='img/tg.png') }}" alt="Telegram" class="telegram-icon">
+                <img src="{{ url_for('static', filename='img/vk.png') }}" alt="VK" class="telegram-icon">
             </button>
         </a>
         </div>
@@ -577,15 +577,15 @@
     <div class="footer-bottom">
         <div class="footer-info">
         <div class="info-item">
-            <img src="image/email.png" alt="Email" class="info-icon">
+            <img src="{{ url_for('static', filename='img/email.png') }}" alt="Email" class="info-icon">
             <span>info@mycompany.com</span>
         </div>
         <div class="info-item">
-            <img src="image/phone.png" alt="Телефон" class="info-icon">
+            <img src="{{ url_for('static', filename='img/phone.png') }}" alt="Телефон" class="info-icon">
             <span>+7 (978) 585-80-80</span>
         </div>
         <div class="info-item">
-            <img src="image/geo.png" alt="Адрес" class="info-icon">
+            <img src="{{ url_for('static', filename='img/geo.png') }}" alt="Адрес" class="info-icon">
             <span>г. Севастополь, ул. Новороссийская, 56</span>
         </div>
         </div>
@@ -626,11 +626,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="scripts/navbar.js"></script>
-    <script src="scripts/script.js"></script>
-    <script src="scripts/about_us.js"></script>
-    <script src="scripts/modal_func.js"></script>
-    <script src="scripts/calculator.js"></script>
-    <script src="scripts/reviews.js"></script>
+    <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/about_us.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modal_func.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reviews.js') }}"></script>
 </body>
 </html>
