@@ -1,0 +1,285 @@
+.calculator {
+    margin: auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.desc {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.calc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* две колонки на ПК */
+    gap: 20px;
+}
+
+/* Площадь помещения — на всю ширину */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Элементы — обычная колонка */
+.elements-block {
+    grid-column: 1 / 2;
+}
+
+/* Результат — шире, чем элементы */
+.result-block {
+    grid-column: 2 / 3;
+}
+
+/* Адаптив под мобилки */
+@media (max-width: 768px) {
+    .calc-container {
+        grid-template-columns: 1fr; /* одна колонка */
+    }
+    .full-width,
+    .elements-block,
+    .result-block {
+        grid-column: 1;
+    }
+}
+
+
+.calc-block {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.calc-block h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/* Контейнер для радио-кнопок */
+.calc-block label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border 0.2s, background 0.2s;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* Наведение */
+.calc-block label:hover {
+    border-color: #703BF7;
+}
+
+/* Скрываем стандартный radio */
+.calc-block input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #aaa;
+    border-radius: 4px; /* квадратные углы */
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Когда выбрано */
+.calc-block input[type="radio"]:checked {
+    background: #703BF7;
+    border-color: #703BF7;
+}
+
+/* Чтобы выбранный пункт выглядел как кнопка */
+.calc-block input[type="radio"]:checked + span {
+    color: #fff;
+    font-weight: 500;
+}
+
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+/* Общий стиль ползунка */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+    transition: background 0.2s;
+}
+
+/* При наведении — чуть ярче */
+input[type="range"]:hover {
+    background: rgba(122, 60, 255, 0.4);
+}
+
+/* Ползунок (Webkit: Chrome, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #703BF7;
+    border-radius: 4px; /* квадратненький */
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #9a5cff;
+    transform: scale(1.1);
+}
+
+/* Ползунок (Firefox) */
+input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #703BF7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #703BF7;
+    transform: scale(1.1);
+}
+
+/* Прогресс для Firefox */
+input[type="range"]::-moz-range-progress {
+    background: #703BF7;
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Трек для Firefox */
+input[type="range"]::-moz-range-track {
+    background: rgba(255, 255, 255, 0.1);
+    height: 6px;
+    border-radius: 3px;
+}
+
+
+/* Контейнер элементов — сетка */
+.elements-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* две колонки */
+    gap: 10px;
+}
+
+.element {
+    display: flex;
+    flex-direction: column; /* элементы сверху вниз */
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.element label {
+    font-size: 16px;
+    color: #aaa; /* серый текст */
+    margin-bottom: 8px;
+
+}
+
+.element-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.element button {
+    background: #703BF7;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.element button:hover {
+    background: #703BF7;
+}
+
+.element span {
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.calc-result {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #703BF7;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.calc-result h2 {
+    font-size: 20px;
+    color: #fff;
+    margin: 0;
+    font-weight: 600;
+}
+
+.calc-result p {
+    font-size: 36px;
+    font-weight: 700;
+    color: #703BF7;
+    margin: 0;
+}
+
+
+
+.calc-result small {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.order-btn {
+    background: #703BF7;
+    border: none;
+    padding: 12px 24px;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.order-btn:hover {
+    background: #9b5cff;
+    transform: translateY(-2px);
+}

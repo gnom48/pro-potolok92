@@ -1,0 +1,112 @@
+/* ===== Модальное окно ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(15, 15, 17, 0.9); /* соответствует фону сайта */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #1a1a1d; /* немного светлее основного фона */
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #703BF7; /* твой акцентный цвет */
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: #0f0f11;
+  color: #fff;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #703BF7; /* твой акцентный цвет */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #5e32c7; /* чуть темнее при наведении */
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #333;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 10px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 10px;
+}
+
+.modal-phone a {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #703BF7; /* твой акцентный цвет */
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.modal-phone a:hover {
+  color: #5e32c7; /* темнее при наведении */
+}

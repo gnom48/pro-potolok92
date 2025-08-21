@@ -1,0 +1,199 @@
+
+/* Исходное состояние — чуть сдвинут вниз и прозрачный */
+.carousel-block {
+  opacity: 0;
+  transform: translateY(30px);
+  padding: 60px 0;
+  color: #fff;
+  transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+/* Класс, который добавляется при появлении — элемент становится видимым и поднимается */
+.carousel-block.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.carousel-block h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.carousel-block .subtitle {
+  font-size: 16px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Горизонтальный скролл с привязкой */
+.carousel-track-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-track-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+}
+
+.carousel-slide {
+  flex: 0 0 280px;
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.carousel-slide h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+
+.carousel-slide img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.carousel-slide .content {
+  padding: 20px 16px 24px; /* чуть больше сверху и снизу */
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* расстояние между основными элементами */
+}
+
+.carousel-slide p {
+  font-size: 14px;
+  color: #bbb;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.features {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #aaa;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4px; /* небольшой отступ сверху от абзаца */
+  margin-bottom: 8px; /* небольшой отступ снизу перед ценой */
+}
+
+.carousel-slide p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.features span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.price-order-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 8px; /* чтобы немного отделить от верхних блоков */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* лёгкая линия разделения */
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  /* убираем любые margin, чтобы не сдвигать по вертикали */
+  margin: 0;
+}
+
+.btn-order {
+  background: #7b5cff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 140px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-order:hover {
+  background: #6749d8;
+}
+
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .carousel-slide {
+    flex: 0 0 80vw;
+  }
+}
+
+.guarantee-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(180, 180, 180, 0.6);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6e6e6e;
+    background: linear-gradient(145deg, rgba(240, 240, 240, 0.9), rgba(210, 210, 210, 0.9));
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.6),
+                0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.guarantee-badge:hover {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(210, 210, 210, 1));
+    border-color: rgba(200, 200, 200, 0.9);
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.7),
+                0 2px 6px rgba(0, 0, 0, 0.1);
+    color: #5a5a5a;
+}
+
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ссылка внутри описания */
+.carousel-slide .content p a {
+    color: #9b7cff; /* твой фирменный фиолетовый */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-slide .content p a:hover {
+    color: #9b7cff; /* более светлый фиолетовый при наведении */
+    text-decoration: none; /* убираем подчеркивание при ховере для эффекта мягкого выделения */
+}
+

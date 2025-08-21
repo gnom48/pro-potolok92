@@ -1,0 +1,335 @@
+/* ===== Общие стили ===== */
+body {
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 400; /* Regular */
+    background-color: #0f0f11;
+    color: white;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===== Шапка ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 15, 17, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 15px;
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+  background-color: #703BF7; /* твой цвет кнопки */
+  color: #fff;
+  font-weight: bold;
+}
+
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+
+.hero-image {
+  position: relative;
+  max-width: 100%;
+  margin-left: 10px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image .overlay-img {
+  position: absolute;
+  top: 10%;   /* ближе к верху */
+  left: -10%; /* чуть левее основной */
+  width: 120px; /* размер плашки */
+  height: auto;
+  z-index: 2; /* выше основной картинки */
+}
+
+
+
+/* Анимации движения волн */
+@keyframes waveMoveSlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 400px 0; }
+}
+
+@keyframes waveMoveMedium {
+    0% { background-position: 0 0; }
+    100% { background-position: -400px 0; }
+}
+
+@keyframes waveMoveFast {
+    0% { background-position: 0 0; }
+    100% { background-position: 600px 0; }
+}
+
+/* Чтобы контент был поверх */
+.hero > * {
+    position: relative;
+    z-index: 3;
+}
+
+header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a:hover {
+    color: #a267ff;
+}
+
+.btn-primary {
+    background: #703BF7;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #703BF7;
+}
+
+.btn-secondary {
+    border: 1px solid #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Кнопка-бургер для мобилки ===== */
+.burger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #c9c9c9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 20px;
+    margin-top: 20px;
+    justify-items: center; /* выравнивание по центру */
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;          /* предотвращаем вылезание псевдоэлемента */
+    padding: 20px 25px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 120px;              /* фиксированная ширина для одинаковых блоков */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+}
+
+.stat span {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.stat::before {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px; right: 2px; bottom: 2px; /* граница внутри блока */
+    border-radius: 15px;
+    background: linear-gradient(90deg, #c0c0c0, transparent, #c0c0c0);
+    background-size: 200% 200%;
+    animation: borderSnake 3s linear infinite;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+@keyframes borderSnake {
+    0% { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+
+
+
+/* ===== Анимация появления ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-item {
+  background: #141414;
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.review-item p {
+  font-size: 16px;
+  color: #b0b0b0;
+  margin-bottom: 10px;
+}
+
+.review-item span {
+  font-size: 14px;
+  color: #f1c40f;
+}
+
+.contacts-section {
+    margin: auto;
+    padding: 20px 20px;
+    max-width: 1200px;
+}
+
+.contacts-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.contacts-intro p {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: lighter;
+}
+
+.contacts-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contacts-map iframe {
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.contacts-info {
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacts-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.contacts-info p {
+    margin: 0;
+    font-weight: lighter;
+    font-size: 16px;
+    color: #ccc;
+}

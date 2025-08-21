@@ -1,0 +1,110 @@
+.about-us {
+    margin: auto;
+    padding: 20px 20px;
+    max-width: 1200px;
+    color: #ffffff;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.about-desc {
+    font-size: 18px;
+    color: #b0b0b0;
+    max-width: 1200px;
+    font-weight: lighter;
+}
+
+.about-top {
+    display: flex;
+    align-items: center; /* иконка и h3 по высоте */
+    gap: 15px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.about-item {
+    background: #141414;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* чтобы h3 и p были под иконкой */
+    align-items: flex-start;
+    gap: 15px;
+    transform: translateY(50px);
+    transition: all 0.3s ease;
+}
+
+.about-item .about-icon {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #aaa; /* тонкий серый контур */
+    border-radius: 15%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.about-item h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-item p {
+    font-size: 16px;
+    color: #b0b0b0;
+    margin-top: 10px;
+    font-weight: lighter;
+}
+
+.stars {
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    gap: 6px;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* одна колонка */
+    }
+
+    .about-item {
+        flex-direction: column; /* иконка сверху */
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+/* Эффект при наведении */
+.about-item:hover {
+    transform: translateY(-10px) scale(1.03); /* подъём и лёгкое увеличение */
+    box-shadow: 0 10px 30px rgba(128, 0, 255, 0.2), 0 4px 15px rgba(128, 0, 255, 0.2);
+    background: linear-gradient(145deg, #1a1a1a, #222222); /* мягкий градиент */
+    transition: all 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+/* Эффект для иконки внутри карточки */
+.about-item .about-icon {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-item:hover .about-icon {
+    transform: rotate(10deg) scale(1.1); /* лёгкий поворот и увеличение иконки */
+    box-shadow: 0 0 15px rgba(111, 0, 255, 0.5);
+}
+
+/* Эффект для текста */
+.about-item h3, .about-item p {
+    transition: color 0.3s ease;
+}

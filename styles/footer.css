@@ -1,0 +1,122 @@
+.site-footer {
+  background: #141414;
+  color: #ffffff;
+  font-family: 'Urbanist', sans-serif;
+  padding: 40px 20px 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.company-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.footer-menu a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #b0b0b0;
+  transition: color 0.3s ease;
+}
+
+
+.subscribe-btn {
+  border: 2px solid #703BF7;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color:#fff;
+  background: transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(112, 59, 247, 0.7),
+              0 0 20px rgba(112, 59, 247, 0.5);
+}
+
+.subscribe-btn:hover {
+  background: #703BF7;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(112, 59, 247, 0.9),
+              0 0 25px rgba(112, 59, 247, 0.8),
+              0 0 40px rgba(112, 59, 247, 0.6);
+  transform: scale(1.05);
+}
+
+
+.telegram-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.footer-divider {
+  border: 0.5px solid rgba(255,255,255,0.2);
+  margin: 20px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.info-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-policy a {
+  text-decoration: none;
+  color: #b0b0b0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .footer-top, .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-center {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .footer-right {
+    order: 2;
+  }
+
+  .footer-policy {
+    width: 100%;
+    text-align: right;
+  }
+}

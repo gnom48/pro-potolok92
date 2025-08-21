@@ -1,0 +1,142 @@
+.reviews-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.reviews-header {
+  margin-bottom: 20px;
+}
+
+.reviews-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* кнопка по центру относительно заголовка */
+}
+
+.reviews-header h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.reviews-subtitle {
+  font-size: 16px;
+  color: #ccc;
+  font-weight: lighter;
+  line-height: 1.4;
+  margin-top: 8px; /* небольшой отступ сверху */
+}
+
+.reviews-header a {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.reviews-header a:hover {
+  background: #444;
+}
+
+/* --- Карточки отзывов --- */
+.reviews-carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.review-card {
+  border-radius: 15px;
+  border-color: #ccc;
+  padding: 20px;
+  margin-right: 20px;
+  border: 1px solid #333; /* нормальный контур */
+  width: 350px;
+}
+
+.stars-row {
+  margin-bottom: 15px;
+  display: flex;
+  
+  gap: 5px;
+}
+
+.stars-row span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #333; /* цвет контура */
+  border-radius: 50%;
+  color: #f39c12; /* цвет звездочки */
+  font-size: 14px;
+}
+
+.review-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 16px;
+  font-weight: lighter;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* --- Кнопки карусели --- */
+.carousel-controls {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #333; /* разделительная линия */
+  display: flex;
+  justify-content: flex-end; /* кнопки справа */
+  gap: 10px;
+}
+
+.carousel-controls button {
+  background: #222;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: #444;
+}
+
+.review-author small {
+    font-size: 13px;        /* чуть меньше, чтобы не отвлекало */
+    color: #999;            /* мягкий серый, ненавязчивый */
+    font-style: italic;     /* лёгкая «пишущаяся» нотка доверия */
+    display: block;         /* чтобы стояла под именем */
+    margin-top: 2px;        /* небольшое расстояние от имени */
+    letter-spacing: 0.5px;  /* чуть больше воздуха между буквами */
+}
