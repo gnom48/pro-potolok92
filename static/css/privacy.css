@@ -1,0 +1,82 @@
+/* Политика конфиденциальности — стиль в тему сайта */
+.privacy-section {
+  background: linear-gradient(180deg, rgba(15,15,17,1) 0%, rgba(12,12,14,1) 100%);
+  color: #eaeaea;
+  padding: 60px 20px;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.privacy-section .container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.privacy-section h1 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.privacy-section .lead {
+  color: #c9c9c9;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.privacy-section h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.privacy-section p,
+.privacy-section li {
+  color: #bdbdbd;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.privacy-section ul {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+/* Ссылка в футере */
+.site-footer {
+  padding: 20px;
+  background: rgba(10,10,12,0.8);
+  border-top: 1px solid rgba(112,59,247,0.06);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #bdbdbd;
+}
+
+.footer-link {
+  color: #703BF7;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-link:hover {
+  background: rgba(112,59,247,0.08);
+  color: #fff;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .privacy-section {
+    padding: 30px 16px;
+  }
+  .privacy-section h1 { font-size: 22px; }
+  .privacy-section h2 { font-size: 16px; margin-top: 20px; }
+  .privacy-section p, .privacy-section li { font-size: 14px; }
+  .footer-row { flex-direction: column; gap: 8px; text-align: center; }
+}

@@ -1,19 +1,19 @@
 const prices = {
     ceilingType: {
-        classic: 500,
-        floating: 700,
+        classic: 600,
+        floating: 1200,
         shadow: 800
     },
     materialType: {
         glossy: 0,
-        matte: 50,
-        satin: 100
+        matte: 0,
+        satin: 0
     },
     elements: {
-        lamps: 500,
-        track: 1000,
-        chandelier: 1500,
-        lightLine: 2000
+        lamps: 400,
+        track: 400,
+        chandelier: 300,
+        lightLine: 2500
     }
 };
 

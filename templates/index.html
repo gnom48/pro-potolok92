@@ -109,7 +109,6 @@
 </head>
 
 <body>
-
     <header>
         <div class="logo">PRO Потолок</div>
         <nav>
@@ -578,7 +577,7 @@
         <div class="footer-info">
         <div class="info-item">
             <img src="{{ url_for('static', filename='img/email.png') }}" alt="Email" class="info-icon">
-            <span>info@mycompany.com</span>
+            <span>pro-potolok92@mail.ru</span>
         </div>
         <div class="info-item">
             <img src="{{ url_for('static', filename='img/phone.png') }}" alt="Телефон" class="info-icon">
@@ -588,13 +587,13 @@
             <img src="{{ url_for('static', filename='img/geo.png') }}" alt="Адрес" class="info-icon">
             <span>г. Севастополь, ул. Новороссийская, 56</span>
         </div>
-        </div>
-        <div class="footer-policy">
-        <a href="#privacy">Политика конфиденциальности</a>
+            <div class="footer-policy"> 
+                <a href="/privacy">Политика конфиденциальности</a> 
+            </div> 
         </div>
     </div>
     </footer>
-
+    <!-- ===== Модалка ===== -->
     <div class="modal" id="modal">
     <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
@@ -602,8 +601,8 @@
         <p>Введите ваше имя и номер телефона</p>
 
         <form id="requestForm">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+        <input type="text" name="name" placeholder="Ваше имя" required autofocus>
+        <input type="tel" name="phone" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
 
         <!-- Кнопка -->
         <div class="modal-buttons">
@@ -612,9 +611,7 @@
         </form>
 
         <!-- Разделитель -->
-        <div class="divider">
-        <span>ИЛИ</span>
-        </div>
+        <div class="divider"><span>ИЛИ</span></div>
 
         <!-- Телефон -->
         <div class="modal-phone">
@@ -623,9 +620,9 @@
     </div>
     </div>
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
     <script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/about_us.js') }}"></script>
