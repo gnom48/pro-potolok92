@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 YANDEX_URL = "https://yandex.ru/maps/org/214850144202/reviews"  # ссылка на отзывы
 
-
 @app.route('/api/reviews')
 def get_reviews():
     headers = {
