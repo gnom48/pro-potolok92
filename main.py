@@ -129,9 +129,8 @@ def privacy():
 
 
 if __name__ == "__main__":
-    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
-        scheduler = BackgroundScheduler(timezone=timezone("Europe/Moscow"))
-        scheduler.add_job(send_report, "cron", hour=12, minute=0)  
-        scheduler.start()
+    scheduler = BackgroundScheduler(timezone=timezone("Europe/Moscow"))
+    scheduler.add_job(send_report, "cron", hour=12, minute=0)
+    scheduler.start()
 
     app.run(debug=True)
