@@ -13,7 +13,7 @@ app = Flask(__name__)
 # ================== Настройки ==================
 YANDEX_URL = "https://yandex.ru/maps/org/214850144202/reviews"
 
-TELEGRAM_TOKEN = "8348692489:AAEI3a8VJaNlMI4YDPAFE0kWNmmn7YUN5mM"
+TELEGRAM_TOKEN = os.getenv("TOKEN", default="-")
 CHAT_IDS = ["1115007593", "5921894758"]  # список получателей
 
 DB_FILE = "visitors.db"
@@ -92,6 +92,7 @@ def generate_report():
 def send_report():
     report = generate_report()
     for chat_id in CHAT_IDS:
+        print("Отчет отправлен")
         requests.post(
             f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
             json={"chat_id": chat_id, "text": report}
@@ -132,7 +133,9 @@ def privacy():
 if __name__ == "__main__":
     # scheduler = BackgroundScheduler(timezone=timezone("Europe/Moscow"))
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
-    scheduler.add_job(send_report, "cron", hour=14, minute=5)
+    # scheduler.add_job(send_report, "cron", hour=17, minute=30)
+    scheduler.add_job(send_report, trigger="interval", days=1, start_date="2025-09-19T17:20:00+03:00")
     scheduler.start()
+    print("Запланировано и планировщик запущен")
 
     app.run(debug=True)
