@@ -3,7 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 from datetime import datetime
-from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import os
 from pytz import timezone
 
@@ -129,8 +130,9 @@ def privacy():
 
 
 if __name__ == "__main__":
-    scheduler = BackgroundScheduler(timezone=timezone("Europe/Moscow"))
-    scheduler.add_job(send_report, "cron", hour=12, minute=0)
+    # scheduler = BackgroundScheduler(timezone=timezone("Europe/Moscow"))
+    scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
+    scheduler.add_job(send_report, "cron", hour=14, minute=5)
     scheduler.start()
 
     app.run(debug=True)
