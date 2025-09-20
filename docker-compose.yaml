@@ -5,6 +5,3 @@ services:
       - "5555:5555"
     volumes:
       - .:/app
-    environment:
-      FLASK_APP: main.py
-      FLASK_ENV: development

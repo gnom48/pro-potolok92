@@ -1,0 +1,5 @@
+Создать .env
+
+```.env
+TOKEN=telegram_bot_token
+```

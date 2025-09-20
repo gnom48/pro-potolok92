@@ -10,3 +10,4 @@
 /visitors.csv
 /tempCodeRunnerFile.py
 *.db
+.env
