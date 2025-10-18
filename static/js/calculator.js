@@ -22,6 +22,7 @@ const areaInput = document.getElementById('area');
 const areaValue = document.getElementById('areaValue');
 const priceMinEl = document.getElementById('priceMin');
 const priceMaxEl = document.getElementById('priceMax');
+const priceAvgEl = document.getElementById('priceAvg');
 
 // Обновление значения площади
 areaInput.addEventListener('input', () => {
@@ -51,20 +52,28 @@ document.querySelectorAll('input[type=radio]').forEach(radio => {
 });
 
 function calculatePrice() {
-    const ceilingType = document.querySelector('input[name="ceilingType"]:checked').value;
-    const materialType = document.querySelector('input[name="materialType"]:checked').value;
-    const area = parseInt(areaInput.value);
+  const ceilingType  = document.querySelector('input[name="ceilingType"]:checked')?.value;
+  const materialType = document.querySelector('input[name="materialType"]:checked')?.value;
+  const area = parseInt(areaInput.value, 10) || 0;
 
-    let total = (area * (prices.ceilingType[ceilingType] + prices.materialType[materialType]));
+  if (!ceilingType || !materialType) {
+    priceAvgEl.textContent = '0';
+    return;
+  }
 
-    Object.keys(prices.elements).forEach(el => {
-        const count = parseInt(document.getElementById(el).textContent);
-        total += count * prices.elements[el];
-    });
+  let total = area * (prices.ceilingType[ceilingType] + prices.materialType[materialType]);
+  Object.keys(prices.elements).forEach(el => {
+    const count = parseInt(document.getElementById(el).textContent, 10) || 0;
+    total += count * prices.elements[el];
+  });
 
-    priceMinEl.textContent = total.toLocaleString();
-    priceMaxEl.textContent = Math.round(total * 1.15).toLocaleString();
+  const min = Math.round(total);
+  const max = Math.round(total * 1.15);
+  const avg = Math.round((min + max) / 2);
+
+  priceAvgEl.textContent = new Intl.NumberFormat('ru-RU').format(avg);
 }
+
 
 // Стартовый расчёт
 calculatePrice();
