@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO Title -->
-  <title>Натяжные потолки в Севастополе | PRO Потолок — монтаж и цены</title>
+  <title>Натяжные потолки в Севастополе от 300 ₽/м² | PRO Потолок</title>
 
-  <!-- Meta Description -->
-  <meta name="description" content="Компания PRO Потолок — натяжные потолки в Севастополе под ключ. Красивый дизайн, качественный монтаж, гарантия и доступные цены. Бесплатный замер — звоните!">
+  <meta name="description" content="PRO Потолок: натяжные потолки в Севастополе и Крыму под ключ. Бесплатный замер, расчет после осмотра, монтаж классических, теневых и парящих потолков. Звоните: +7 (978) 585-80-80.">
+  <link rel="canonical" href="https://pro-potolok92.ru/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f0f11">
 
-  <!-- Keywords -->
   <meta name="keywords" content="натяжные потолки Севастополь, PRO Потолок, потолки под ключ, монтаж потолков, потолки цены Севастополь, дизайн потолков, потолки с подсветкой, потолочные решения Севастополь">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Натяжные потолки в Севастополе | PRO Потолок">
-  <meta property="og:description" content="Стильные и надёжные натяжные потолки в Севастополе. Бесплатный замер и консультация. Звоните: +7 (978) 585-80-80">
-  <meta property="og:image" content="https://pro-potolok92.ru/images/logo.png">
+  <meta property="og:title" content="Натяжные потолки в Севастополе от 300 ₽/м² | PRO Потолок">
+  <meta property="og:description" content="Монтаж натяжных потолков под ключ в Севастополе и Крыму. Бесплатный замер, гарантия, расчет после осмотра.">
+  <meta property="og:image" content="{{ url_for('static', filename='img/logo_fiol.png', _external=True) }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pro-potolok92.ru/">
+  <meta property="og:locale" content="ru_RU">
 
   <!-- Favicon -->
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
@@ -37,17 +37,26 @@
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "HomeAndConstructionBusiness",
     "name": "PRO Потолок",
     "url": "https://pro-potolok92.ru",
-    "logo": "https://pro-potolok92.ru/images/logo.png",
-    "image": "https://pro-potolok92.ru/images/logo.jpg",
-    "description": "Компания PRO Потолок — натяжные потолки в Севастополе под ключ. Бесплатный замер, гарантия и качественный монтаж.",
+    "logo": "{{ url_for('static', filename='img/logo_fiol.png', _external=True) }}",
+    "image": "{{ url_for('static', filename='img/worker1.png', _external=True) }}",
+    "description": "Монтаж натяжных потолков в Севастополе и Крыму: классические, теневые, парящие потолки, световые линии и трековые системы.",
+    "telephone": "+7-978-585-80-80",
+    "email": "pro-potolok92@mail.ru",
+    "priceRange": "от 300 ₽/м²",
     "address": {
         "@type": "PostalAddress",
+        "streetAddress": "ул. Новороссийская, 56",
         "addressLocality": "Севастополь",
-        "addressCountry": "Россия"
+        "addressRegion": "Севастополь",
+        "addressCountry": "RU"
     },
+    "areaServed": [
+        "Севастополь",
+        "Крым"
+    ],
     "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+7-978-585-80-80",
@@ -57,7 +66,18 @@
     "sameAs": [
         "https://vk.com/pro_potoloksev",
         "https://t.me/propotolok92"
-    ]
+    ],
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Виды натяжных потолков",
+        "itemListElement": [
+            {"@type": "Offer", "name": "Классический натяжной потолок", "priceCurrency": "RUB", "price": "300"},
+            {"@type": "Offer", "name": "Теневой натяжной потолок", "priceCurrency": "RUB", "price": "900"},
+            {"@type": "Offer", "name": "Парящий натяжной потолок", "priceCurrency": "RUB", "price": "1200"},
+            {"@type": "Offer", "name": "Натяжной потолок со световыми линиями", "priceCurrency": "RUB", "price": "600"},
+            {"@type": "Offer", "name": "Натяжной потолок с трековой системой", "priceCurrency": "RUB", "price": "800"}
+        ]
+    }
     }
     </script>
 
@@ -126,7 +146,7 @@
             <h1>Натяжные потолки в Севастополе</h1>
             <p>Преобразите интерьер своего дома или офиса с помощью современных натяжных потолков от профессионалов в Севастополе. Мы предлагаем стильные и надёжные решения, идеально подходящие как для классического, так и для современного дизайна.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn-primary">Оформить заказ</a>
+                <a href="#" class="btn-primary">Связаться</a>
                 <a href="https://yandex.ru/maps/-/CHxiNFYN" class="btn-secondary">Как добраться</a>
             </div>
             <div class="stats">
@@ -160,8 +180,8 @@
                         <span class="guarantee-badge">15 лет гарантии</span>
                         </div>
                         <div class="price-order-row">
-                        <div class="price">₽300 / м²</div>
-                        <button class="btn-order">Заказать потолок</button>
+                        <div class="price">от 300 ₽ / м²</div>
+                        <button class="btn-order">Связаться</button>
                         </div>
                     </div>
                 </li>
@@ -175,8 +195,8 @@
                         <span class="guarantee-badge">15 лет гарантии</span>
                         </div>
                         <div class="price-order-row">
-                        <div class="price">₽900 / м²</div>
-                        <button class="btn-order" >Заказать потолок</button>
+                        <div class="price">от 900 ₽ / м²</div>
+                        <button class="btn-order" >Связаться</button>
                         </div>
                     </div>
                 </li>
@@ -190,8 +210,8 @@
                         <span class="guarantee-badge">15 лет гарантии</span>
                         </div>
                         <div class="price-order-row">
-                        <div class="price">₽1200 / м²</div>
-                        <button class="btn-order">Заказать потолок</button>
+                        <div class="price">от 1200 ₽ / м²</div>
+                        <button class="btn-order">Связаться</button>
                         </div>
                     </div>
                 </li>
@@ -207,8 +227,8 @@
                         <span class="guarantee-badge">15 лет гарантии</span>
                         </div>
                         <div class="price-order-row">
-                        <div class="price">₽600 / м²</div>
-                        <button class="btn-order">Заказать потолок</button>
+                        <div class="price">от 600 ₽ / м²</div>
+                        <button class="btn-order">Связаться</button>
                         </div>
                     </div>
                 </li>
@@ -223,8 +243,8 @@
                         <span class="guarantee-badge">15 лет гарантии</span>
                         </div>
                         <div class="price-order-row">
-                        <div class="price">₽800 / м²</div>
-                        <button class="btn-order">Заказать потолок</button>
+                        <div class="price">от 800 ₽ / м²</div>
+                        <button class="btn-order">Связаться</button>
                         </div>
                     </div>
                 </li>
@@ -310,8 +330,8 @@
             <div class="calc-block result-block calc-result">
                 <h2>Итого</h2>
                 <p><span id="priceAvg">0</span> ₽</p>
-                <small>Точная сумма уточняется после замера</small>
-                <button class="order-btn">Оформить заказ</button>
+                <small>Предварительный расчет. Точная сумма уточняется после замера.</small>
+                <button class="order-btn">Связаться</button>
             </div>
         </div>
     </section>
@@ -588,6 +608,10 @@
                 <a href="/privacy">Политика конфиденциальности</a> 
             </div> 
         </div>
+        <p class="legal-note">
+            Информация на сайте носит справочный характер и не является публичной офертой.
+            Итоговая стоимость, сроки и условия работ определяются после замера и согласования с клиентом.
+        </p>
     </div>
     </footer>
     <!-- ===== Модалка ===== -->

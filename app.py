@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template, request
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
@@ -48,6 +48,7 @@ def create_app() -> Flask:
 
 
 app = create_app()
+SITE_URL = "https://pro-potolok92.ru"
 
 # ================== База данных ==================
 
@@ -116,6 +117,35 @@ def index():
 @app.route('/privacy')
 def privacy():
     return render_template('privacy.html')
+
+
+@app.route('/robots.txt')
+def robots_txt():
+    sitemap_url = SITE_URL + "/sitemap.xml"
+    content = f"User-agent: *\nAllow: /\nSitemap: {sitemap_url}\n"
+    return Response(content, mimetype="text/plain")
+
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    today = date.today().isoformat()
+    content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{SITE_URL}/</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{SITE_URL}/privacy</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
+"""
+    return Response(content, mimetype="application/xml")
 
 
 init_db()

@@ -96,6 +96,14 @@
   transition: color 0.3s ease;
 }
 
+.legal-note {
+  width: 100%;
+  margin: 10px 0 0;
+  color: #8f8f8f;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 
 /* Адаптив */
 @media (max-width: 768px) {
@@ -118,5 +126,9 @@
   .footer-policy {
     width: 100%;
     text-align: right;
+  }
+
+  .legal-note {
+    text-align: left;
   }
 }
