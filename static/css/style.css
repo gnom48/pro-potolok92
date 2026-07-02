@@ -62,17 +62,20 @@ nav a.active {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 64px;
     padding-top: 100px;
 }
 
 .hero-image {
   position: relative;
-  max-width: 100%;
-  margin-left: 10px;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 620px;
+  margin-left: 24px;
 }
 
 .hero-image img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
 }
@@ -80,10 +83,14 @@ nav a.active {
 .hero-image .overlay-img {
   position: absolute;
   top: 10%;   /* ближе к верху */
-  left: -5%; /* чуть левее основной */
+  left: 10px;
   width: 120px; /* размер плашки */
   height: auto;
   z-index: 2; /* выше основной картинки */
+}
+
+.calculator {
+  display: none;
 }
 
 /* Анимации движения волн */
@@ -158,7 +165,8 @@ nav a:hover {
 }
 
 .hero-text {
-    max-width: 550px;
+    flex: 0 0 470px;
+    max-width: 470px;
 }
 
 .hero h1 {

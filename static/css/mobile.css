@@ -58,6 +58,7 @@
     flex-direction: column; /* сразу вертикально для мобилки */
     align-items: center;
     justify-content: center;
+    gap: 0;
 }
 
 .hero-image {
@@ -85,6 +86,7 @@
 
 /* ===== Текст и кнопки ===== */
 .hero-text {
+    flex: none;
     width: 100%;
     max-width: 100%;
     text-align: center;
@@ -190,4 +192,3 @@ nav.active {
 
 
 }
-
