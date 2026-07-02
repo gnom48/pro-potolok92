@@ -2,9 +2,13 @@ from flask import Flask, Response, jsonify, render_template
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
-from datetime import date
+from datetime import datetime
+from zoneinfo import ZoneInfo
+from apscheduler.triggers.cron import CronTrigger
+from apscheduler.schedulers.background import BackgroundScheduler
 import consts
 import os
+from scheduler import send_report
 
 
 class MyFlask(Flask):
@@ -21,6 +25,10 @@ class MyFlask(Flask):
         instance_relative_config: bool = False,
         root_path: str | None = None,
     ):
+        self.my_scheduler = BackgroundScheduler(timezone=consts.TIMEZONE)
+        self.my_scheduler.add_job(send_report, trigger=CronTrigger(hour=9, minute=0))
+        self.my_scheduler.start()
+
         super().__init__(
             import_name=import_name,
             static_url_path=static_url_path,
@@ -61,7 +69,7 @@ def init_db():
 
 @app.post('/api/visit')
 def count_visit():
-    today = date.today().isoformat()
+    today = datetime.now(ZoneInfo(consts.TIMEZONE)).date().isoformat()
     conn = sqlite3.connect(consts.DB_FILE)
     cur = conn.cursor()
     cur.execute("""
@@ -115,7 +123,7 @@ def robots_txt():
 
 @app.route('/sitemap.xml')
 def sitemap_xml():
-    today = date.today().isoformat()
+    today = datetime.now(ZoneInfo(consts.TIMEZONE)).date().isoformat()
     content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>

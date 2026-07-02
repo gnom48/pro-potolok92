@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 5555
 
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5555", "app:app"]
+CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:5555", "app:app"]
