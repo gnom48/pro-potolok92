@@ -89,10 +89,6 @@ nav a.active {
   z-index: 2; /* выше основной картинки */
 }
 
-.calculator {
-  display: none;
-}
-
 /* Анимации движения волн */
 @keyframes waveMoveSlow {
     0% { background-position: 0 0; }
