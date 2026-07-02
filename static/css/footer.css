@@ -84,6 +84,15 @@
   color: #b0b0b0;
 }
 
+.business-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  color: #b0b0b0;
+  font-size: 13px;
+}
+
 .info-icon {
   width: 18px;
   height: 18px;

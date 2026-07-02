@@ -1,13 +1,10 @@
-from flask import Flask, Response, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
 from datetime import date
-from apscheduler.triggers.cron import CronTrigger
-from apscheduler.schedulers.background import BackgroundScheduler
 import consts
 import os
-from scheduler import send_report
 
 
 class MyFlask(Flask):
@@ -24,11 +21,6 @@ class MyFlask(Flask):
         instance_relative_config: bool = False,
         root_path: str | None = None,
     ):
-        self.my_scheduler = BackgroundScheduler(timezone="UTC")
-        self.my_scheduler.add_job(
-            send_report, trigger=CronTrigger(hour=9+3, minute=0))
-        self.my_scheduler.start()
-
         super().__init__(
             import_name=import_name,
             static_url_path=static_url_path,
@@ -50,14 +42,13 @@ def create_app() -> Flask:
 app = create_app()
 SITE_URL = "https://pro-potolok92.ru"
 
-# ================== База данных ==================
+
+# ================== Обезличенная статистика ==================
 
 
 def init_db():
     conn = sqlite3.connect(consts.DB_FILE)
     cur = conn.cursor()
-
-    cur.execute("DROP TABLE IF EXISTS visits")
     cur.execute("""
         CREATE TABLE IF NOT EXISTS daily_visits (
             visit_date TEXT PRIMARY KEY,
@@ -66,9 +57,6 @@ def init_db():
     """)
     conn.commit()
     conn.close()
-
-
-# ================== Агрегированная статистика ==================
 
 
 @app.post('/api/visit')
@@ -84,7 +72,6 @@ def count_visit():
     conn.commit()
     conn.close()
     return jsonify({"status": "ok"})
-
 
 # ================== Основные маршруты ==================
 

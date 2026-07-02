@@ -11,8 +11,4 @@ COPY . .
 
 EXPOSE 5555
 
-# TODO: это плохо - сервре для отладки. Но это единственное что способно запустить scheduler
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5555", "--no-reload"]
-
-# CMD ["python", "app.py"]
-# CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:5555", "app:app"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5555", "app:app"]
