@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template, request
 import requests
 from bs4 import BeautifulSoup
 import sqlite3
-from datetime import datetime, timedelta
+from datetime import date
 from apscheduler.triggers.cron import CronTrigger
 from apscheduler.schedulers.background import BackgroundScheduler
 import consts
@@ -55,39 +55,34 @@ app = create_app()
 def init_db():
     conn = sqlite3.connect(consts.DB_FILE)
     cur = conn.cursor()
+
+    cur.execute("DROP TABLE IF EXISTS visits")
     cur.execute("""
-        CREATE TABLE IF NOT EXISTS visits (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            ip TEXT,
-            user_agent TEXT,
-            timestamp DATETIME
+        CREATE TABLE IF NOT EXISTS daily_visits (
+            visit_date TEXT PRIMARY KEY,
+            count INTEGER NOT NULL DEFAULT 0
         )
     """)
     conn.commit()
     conn.close()
 
 
-# ================== Логирование визитов ==================
+# ================== Агрегированная статистика ==================
 
 
-@app.before_request
-def log_visit():
-    if request.endpoint not in ("static", "get_reviews"):  # не считаем API и статику
-        ip = request.remote_addr
-        user_agent = request.headers.get("User-Agent", "Unknown")
-
-        # фильтрация ботов
-        bot_signatures = ["bot", "spider", "crawl"]
-        if any(b in user_agent.lower() for b in bot_signatures):
-            return
-
-        now = datetime.now()
-        conn = sqlite3.connect(consts.DB_FILE)
-        cur = conn.cursor()
-        cur.execute("INSERT INTO visits (ip, user_agent, timestamp) VALUES (?, ?, ?)",
-                    (ip, user_agent, now))
-        conn.commit()
-        conn.close()
+@app.post('/api/visit')
+def count_visit():
+    today = date.today().isoformat()
+    conn = sqlite3.connect(consts.DB_FILE)
+    cur = conn.cursor()
+    cur.execute("""
+        INSERT INTO daily_visits (visit_date, count)
+        VALUES (?, 1)
+        ON CONFLICT(visit_date) DO UPDATE SET count = count + 1
+    """, (today,))
+    conn.commit()
+    conn.close()
+    return jsonify({"status": "ok"})
 
 
 # ================== Основные маршруты ==================

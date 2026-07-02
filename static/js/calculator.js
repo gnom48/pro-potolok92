@@ -79,23 +79,22 @@ function calculatePrice() {
 calculatePrice();
 
 
-gsap.registerPlugin(ScrollTrigger);
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
 
-// Анимация всех блоков калькулятора
-gsap.from(".calc-block", {
-  y: 50,           // подлетаем снизу
-  opacity: 0,       // появляемся
-  scale: 0.95,      // чуть уменьшаемся при старте
-  stagger: 0.2,     // последовательное появление блоков
-  duration: 0.8,
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".calc-container",
-    start: "top 90%",     // когда контейнер почти виден
-    end: "bottom top",    // пока нижняя граница контейнера дойдет до верха экрана
-    scrub: 1.2,           // плавная привязка к скроллу
-    // pin: false, чтобы не увеличивать пространство
-    toggleActions: "play reverse play reverse" // повторная анимация при скролле вверх
-  }
-});
-
+  gsap.from(".calc-block", {
+    y: 50,
+    opacity: 0,
+    scale: 0.95,
+    stagger: 0.2,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".calc-container",
+      start: "top 90%",
+      end: "bottom top",
+      scrub: 1.2,
+      toggleActions: "play reverse play reverse"
+    }
+  });
+}

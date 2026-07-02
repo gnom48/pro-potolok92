@@ -13,7 +13,7 @@
 .modal-content {
   background: #1a1a1d; /* немного светлее основного фона */
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 8px;
   max-width: 400px;
   width: 90%;
   text-align: center;
@@ -46,70 +46,30 @@
   color: #ccc;
 }
 
-.modal-content input {
-  width: 100%;
-  box-sizing: border-box; /* учитываем padding в ширину */
-  padding: 12px 15px;     /* одинаково слева/справа */
-  margin: 10px 0;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  background-color: #0f0f11;
+.contact-options {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-option {
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid rgba(112, 59, 247, 0.45);
+  border-radius: 8px;
+  background: #0f0f11;
   color: #fff;
-  text-align: left;       /* оставляем текст слева */
-}
-
-
-.btn-submit {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #703BF7; /* твой акцентный цвет */
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-submit:hover {
-  background: #5e32c7; /* чуть темнее при наведении */
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 20px 0;
-  color: #777;
-  font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid #333;
-}
-
-.divider:not(:empty)::before {
-  margin-right: 10px;
-}
-
-.divider:not(:empty)::after {
-  margin-left: 10px;
-}
-
-.modal-phone a {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-  color: #703BF7; /* твой акцентный цвет */
   text-decoration: none;
   transition: 0.3s;
 }
 
-.modal-phone a:hover {
-  color: #5e32c7; /* темнее при наведении */
+.contact-option span {
+  display: block;
+  margin-top: 4px;
+  color: #a98cff;
+  font-weight: 700;
+}
+
+.contact-option:hover {
+  border-color: #703BF7;
+  background: rgba(112, 59, 247, 0.14);
 }

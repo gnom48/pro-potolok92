@@ -1,6 +1,9 @@
-gsap.registerPlugin(ScrollTrigger);
-
 window.addEventListener('load', () => {
+    if (!window.gsap || !window.ScrollTrigger) {
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
     const aboutItems = gsap.utils.toArray('.about-item');
 
     aboutItems.forEach((item) => {

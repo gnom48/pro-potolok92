@@ -11,3 +11,4 @@
 /tempCodeRunnerFile.py
 *.db
 .env
+.DS_Store

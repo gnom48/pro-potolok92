@@ -100,10 +100,21 @@
   gap: 10px;
 }
 
-.review-author img {
+.review-author img,
+.review-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.review-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  background: #703BF7;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 /* --- Кнопки карусели --- */
